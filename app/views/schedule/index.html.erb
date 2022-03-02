@@ -1,1 +1,6 @@
-<h1>スケジュール</h1>
+<h1>スケジュール一覧</h1>
+
+<!--<= link_to 'トップページ', root_path %>-->
+<% @schedule.each do |sche| %>
+<%= sche.title %>
+<% end %>
