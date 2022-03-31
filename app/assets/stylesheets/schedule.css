@@ -1,0 +1,30 @@
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border: 0.5px #000 solid;
+  margin: 50px;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+td,th {
+  border: 0.5px #000 solid;
+  padding: 20px 30px;
+}
+
+th {
+  background-color: #ffdfdf;
+}
+
+td {
+  background-color: #f1c8c861;
+}
+
+.test {
+  margin: 100px;
+}

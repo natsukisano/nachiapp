@@ -1,6 +1,41 @@
-<h1>スケジュール一覧</h1>
+<div class ="contents">
+  <div class ="container">
+    <h1>スケジュール一覧</h1>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+      <table class = "form">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>開始日時</th>
+            <th>終了日時</th>
+            <th>終日</th>
+            <th>スケジュール更新日時</th>
+            <th>詳細</th>
+          </tr>
+        </thead>
+        <% @schedule.each do |sche| %>
+          <tbody>
+            <% if sche.end < DateTime.now %>
+              <tr>
+                <td><%= sche.id %></td>
+                <td><%= sche.title %></td>
+                <td><%= sche.start.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <td><%= sche.end.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <td><% if sche.allday == true %>
+                      ○
+                    <% else %>
+                    <% end %></td>
+                <td><%= sche.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+                <td><%= link_to "詳細", schedule_path(sche.id) %></td>
+              </tr>
+          </tbody>
+        <% end %>
+      </table>
 
-<!--<= link_to 'トップページ', root_path %>-->
-<% @schedule.each do |sche| %>
-<%= sche.title %>
-<% end %>
+    <%= link_to "スケジュール新規作成", new_schedule_path %>
+    <%= p DateTime.now %>
+  </div>
+</div>
