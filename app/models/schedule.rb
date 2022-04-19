@@ -9,3 +9,12 @@ class Schedule < ApplicationRecord
     :start < :end
   end
 end
+
+# validate :date_before_start
+
+
+#   def date_before_start
+#     return if start.blank?
+#     errors.add(:start, "は今日以降のものを選択してください") if start < Date.today
+#   end
+

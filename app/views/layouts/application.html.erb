@@ -23,7 +23,9 @@
 
     <footer>
       <div class="footer">
-        <h1><%= "現在の日時：#{Date.current.strftime("%Y年%m月%d日 %H:%M")}"%></h1>
+        <% @counts = Schedule.where("start > ?", Date.today).count %>
+        <h1>現在の日時：<%="#{Date.current.strftime("%Y年%m月%d日")}"%>
+            スケジュール合計：<%= @counts %></h1>
       </div>
     </footer>
   </body>
