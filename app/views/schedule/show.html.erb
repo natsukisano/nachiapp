@@ -1,0 +1,40 @@
+<div class ="contents">
+  <div class ="container">
+    <h1>スケジュール詳細</h1>
+      <table class = "show-page">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td><%= @schedule.id %></td>
+          </tr>
+          <tr>
+            <th>タイトル</th>
+            <td><%= @schedule.title %></td>
+          </tr>
+          <tr>
+            <th>開始日時</th>
+            <td><%= @schedule.start.strftime("%Y年%m月%d日 %H:%M") %></td>
+          </tr>
+          <tr>
+            <th>終了日時</th>
+            <td><%= @schedule.end.strftime("%Y年%m月%d日 %H:%M") %></td>
+          </tr>
+          <tr>
+            <th>終日</th>
+            <td><% if @schedule.allday == true %>
+                  ○
+                <% else %>
+                <% end %></td>
+          </tr>
+          <tr>
+            <th>スケジュール更新日時</th>
+            <td><%= @schedule.updated_at.strftime("%Y年%m月%d日 %H:%M") %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    <%= link_to "スケジュール編集", edit_schedule_path(@schedule.id) %>
+    <%= link_to "スケジュール削除", schedule_path(@schedule.id), :method => :delete %>
+    <%= link_to "トップページ", root_path %>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class ="contents">
+  <div class ="container">
+    <h1>スケジュール詳細</h1>
+    <%= form_with model: @schedule do |sche| %>
+      <table class = "show-page">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td><%= sche.text_field :id %></td>
+          </tr>
+          <tr>
+            <th>タイトル</th>
+            <td><%= sche.text_field :title %></td>
+          </tr>
+          <tr>
+            <th>開始日時</th>
+            <td><%= sche.datetime_local_field :start %></td>
+          </tr>
+          <tr>
+            <th>終了日時</th>
+            <td><%= sche.datetime_local_field :end %></td>
+          </tr>
+          <tr>
+            <th>終日</th>
+            <td><%= sche.check_box :allday %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= sche.submit "更新", class: 'container'%>
+      <% end %>
+
+  </div>
+</div>
